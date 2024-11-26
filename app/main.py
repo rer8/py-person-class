@@ -16,7 +16,7 @@ def create_person_list(people_list: list) -> list:
     for person_dict in people_list:
         current_person = Person.people[person_dict["name"]]
         if "wife" in person_dict and person_dict["wife"]:
-            current_person.wife = Person.people[person_dict["wife"]]
+            current_person.wife = Person.people.get(person_dict["wife"])
         if "husband" in person_dict and person_dict["husband"]:
-            current_person.husband = Person.people[person_dict["husband"]]
+            current_person.husband = Person.people.get(person_dict["husband"])
     return person_instances
